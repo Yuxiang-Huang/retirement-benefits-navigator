@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Retirement Benefits Navigator</title>
+    <script>
+      try {
+        const saved = JSON.parse(localStorage.getItem("rbn-navigator-v1") || "{}");
+        if (saved.textSize) document.documentElement.dataset.text = saved.textSize;
+        if (saved.contrast) document.documentElement.dataset.contrast = "high";
+      } catch (error) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Outfit:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-screen="landing">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-bar">
+        <p class="brand">Retirement Benefits Navigator</p>
+        <div class="header-tools">
+          <p class="language">English</p>
+          <div class="text-size" role="group" aria-label="Text size">
+            <span>Text size</span>
+            <button type="button" data-text-size="100" aria-pressed="true">100%</button>
+            <button type="button" data-text-size="150" aria-pressed="false">150%</button>
+            <button type="button" data-text-size="200" aria-pressed="false">200%</button>
+          </div>
+          <label class="contrast">
+            <span>High contrast</span>
+            <input id="contrast" type="checkbox" />
+          </label>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section id="landing" class="wrap landing">
+        <p class="eyebrow">Free community service · No login required</p>
+        <h1>Find state and federal benefits without searching by program names</h1>
+        <p class="lede">Answer a few questions about your age, where you live, and your household. This screen checks eight federal programs and keeps every answer in this browser.</p>
+        <button id="start" class="btn btn-primary" type="button">Start free questionnaire</button>
+        <p class="privacy">Your answers stay on this computer. Nothing is sent to a server.</p>
+        <p class="disclaimer">A possible match is a screening result from published rules. It is not a decision by the Social Security Administration or the Department of Veterans Affairs. SSA or VA still has to calculate countable income and VA-purpose income.</p>
+        <ul class="features">
+          <li>
+            <h2>Built for support teams and families</h2>
+            <p>Walk through the questions with a parent or a client and keep the checklist for the next conversation.</p>
+          </li>
+          <li>
+            <h2>Plain-language checklist</h2>
+            <p>Possible matches include the official application link. Unknown results list the fact that is still missing.</p>
+          </li>
+          <li>
+            <h2>Easy print or save PDF</h2>
+            <p>Print the checklist from the browser and save it as a PDF. No account is required.</p>
+          </li>
+        </ul>
+      </section>
+      <section id="intake" class="wrap intake-layout" hidden>
+        <div class="intake-main">
+          <p id="step-count" class="step-count"></p>
+          <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p class="save-note">Auto-saved to this computer</p>
+          <div id="question" class="card"></div>
+          <p class="break-note">Need to take a break? You can close this window. When you return, your progress will still be here.</p>
+        </div>
+        <aside id="step-list" class="card step-card" aria-label="Intake checklist"></aside>
+      </section>
+      <section id="results" class="wrap" hidden></section>
+      <section id="detail" class="wrap" hidden></section>
+      <section id="checklist" class="wrap" hidden></section>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

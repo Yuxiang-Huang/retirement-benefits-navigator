@@ -1,0 +1,8 @@
+{
+  "name": "retirement-benefits-navigator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node tests/check-matcher.mjs"
+  }
+}
