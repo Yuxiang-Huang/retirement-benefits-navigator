@@ -323,9 +323,65 @@ select.field { max-width: 100%; padding: 0.8rem; }
 .check-block ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
 
 @media (max-width: 800px) {
+  .wrap { width: min(72rem, calc(100% - 1.25rem)); }
+  h1 { max-width: none; font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .landing { padding: 1.6rem 0 2.5rem; }
+  #start, #checklist > .btn { width: 100%; }
+
+  .header-bar {
+    align-items: stretch;
+    padding: 0.7rem 0;
+    gap: 0.55rem;
+  }
+  .header-tools { width: 100%; }
+  .text-size { flex: 1 1 auto; }
+
   .features, .intake-layout { display: block; }
-  .step-card { position: static; max-height: none; margin-top: 1rem; }
-  h1 { max-width: none; }
+  .features { margin-top: 1.6rem; }
+  .step-card { display: none; }
+
+  .intake-layout { padding-bottom: 1.25rem; }
+  body[data-screen="intake"] { padding-bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
+  .card { padding: 1rem; }
+  .card h2 { font-size: 1.45rem; }
+  .field, select.field { max-width: none; }
+  .choices { flex-direction: column; }
+  .choice {
+    width: 100%;
+    min-height: 3rem;
+  }
+  body[data-screen="intake"] .actions {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0.7rem 0.85rem calc(0.7rem + env(safe-area-inset-bottom));
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  body[data-screen="intake"] .actions .btn { flex: 1; min-height: 3rem; }
+
+  .toolbar .btn { flex: 1 1 8rem; }
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+  .filters .choice { width: auto; flex: none; min-height: 2.6rem; }
+  .result-card a {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.35rem;
+    padding: 0.7rem 0.9rem;
+    border: 2px solid var(--green);
+    border-radius: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  #detail .btn, .check-block a { overflow-wrap: anywhere; }
+  .check-block a { display: inline; }
 }
 
 @media print {
