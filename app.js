@@ -478,6 +478,15 @@ async function loadPrograms() {
     return response.json();
   }));
   state.programs = documents;
+  renderProgramSummaries();
+}
+
+function renderProgramSummaries() {
+  const list = document.getElementById("program-summaries");
+  list.replaceChildren(...state.programs.map((program) => el("li", {}, [
+    el("h3", {}, [program.name]),
+    el("p", {}, [program.summary]),
+  ])));
 }
 
 document.getElementById("start").addEventListener("click", () => {
@@ -512,5 +521,7 @@ window.addEventListener("afterprint", route);
 loadSettings();
 loadPrograms().then(route).catch(() => {
   state.loadError = "The program files could not be loaded.";
+  const list = document.getElementById("program-summaries");
+  if (list && !list.childElementCount) list.textContent = state.loadError;
 });
 document.getElementById("main").tabIndex = -1;

@@ -172,14 +172,28 @@ h1 {
   list-style: none;
 }
 
-.features li, .card {
+.features li, .program-list li, .card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 1rem;
   box-shadow: var(--shadow);
 }
 
-.features li { padding: 1.1rem 1.15rem 1.25rem; }
+.features li, .program-list li { padding: 1.1rem 1.15rem 1.25rem; }
+
+.program-summaries { margin-top: 2.5rem; }
+.program-summaries h2 { font-size: 1.5rem; letter-spacing: -0.03em; margin: 0 0 0.4rem; }
+.program-summaries > p { margin: 0; max-width: 42rem; color: var(--muted); }
+.program-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.program-list h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+.program-list p { margin: 0; color: var(--muted); }
 .features h2 { font-size: 1.05rem; margin: 0 0 0.4rem; }
 .features p { margin: 0; color: var(--muted); }
 
@@ -337,6 +351,7 @@ select.field { max-width: 100%; padding: 0.8rem; }
   .text-size { flex: 1 1 auto; }
 
   .features, .intake-layout { display: block; }
+  .program-list { grid-template-columns: 1fr; }
   .features { margin-top: 1.6rem; }
   .step-card { display: none; }
 
